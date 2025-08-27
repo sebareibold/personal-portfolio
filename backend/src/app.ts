@@ -2,12 +2,9 @@ import express, { Request, Response, Router } from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import chalk from 'chalk';
-import aboutRoutes from './routes/about.routes';
 import contactRoutes from './routes/contact.routes';
-import contentRoutes from './routes/content.routes';
 import experienceRoutes from './routes/experience.routes';
 import projectRoutes from './routes/project.routes';
-import skillRoutes from './routes/skill.routes';
 import userRoutes from './routes/user.routes'; 
 
 dotenv.config();
@@ -28,14 +25,8 @@ mongoose.connect(MONGO_URI)
 const endpoints = [
   { path: '/api/about', methods: ['GET', 'POST', 'PATCH'] },
   { path: '/api/contact', methods: ['GET', 'POST'] },
-  { path: '/api/content', methods: ['GET', 'POST', 'DELETE'] },
-  { path: '/api/content/:seccion', methods: ['GET', 'DELETE'] },
-  { path: '/api/experience', methods: ['GET', 'POST'] },
-  { path: '/api/experience/:id', methods: ['GET', 'PUT', 'DELETE'] },
   { path: '/api/projects', methods: ['GET', 'POST'] },
   { path: '/api/projects/:id', methods: ['GET', 'PUT', 'DELETE'] },
-  { path: '/api/skills', methods: ['GET', 'POST'] },
-  { path: '/api/skills/:id', methods: ['GET', 'PUT', 'DELETE'] },
   { path: '/api/users/register', methods: ['POST'] },
   { path: '/api/users/login', methods: ['POST'] }
 ];
@@ -59,12 +50,9 @@ app.get('/api', (_req: Request, res: Response) => {
 });
 
 // Rutas principales
-app.use('/api/about', aboutRoutes);
 app.use('/api/contact', contactRoutes);
-app.use('/api/content', contentRoutes);
 app.use('/api/experience', experienceRoutes);
 app.use('/api/projects', projectRoutes);
-app.use('/api/skills', skillRoutes);
 app.use('/api/users', userRoutes); 
 
 export default app;

@@ -1,5 +1,3 @@
-import  Navbar from "../components/Navbar/Navbar";
-import  Footer  from "../components/Footer/Footer";
 import DarkVeil from "../components/ReactBits/DarkVeil/DarkVeil"; // Importa el componente
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
@@ -19,9 +17,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       </div>
 
       {/* Contenido principal */}
-      <Navbar />
       <main className="flex-grow">{children}</main>
-      <Footer />
     </div>
   );
 }
