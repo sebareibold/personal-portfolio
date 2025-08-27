@@ -1,0 +1,597 @@
+/* ============================== */
+/*           Variables            */
+/* ============================== */
+
+:root {
+  /* General / Tema */
+  --bg-color: #0a0a0a;
+  --txt-pr-color: #6b7280; /* Texto primario (gris) */
+  --txt-sg-color: #ffffff; /* Texto secundario (blanco) */
+
+  /* Fuentes optimizadas para móviles */
+  --font-primary: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Poppins', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Tamaños de fuente responsivos */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+  --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+
+  /* Espaciado responsivo */
+  --spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+  --spacing-md: clamp(1rem, 0.8rem + 1vw, 2rem);
+  --spacing-lg: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+  --spacing-xl: clamp(2rem, 1.6rem + 2vw, 4rem);
+  --spacing-2xl: clamp(3rem, 2.4rem + 3vw, 6rem);
+
+  /* Colores de acento (se mantienen para UI) */
+  --accent-purple: #7983e2;
+  --accent-blue: #3b82f6;
+  --accent-pink: #ec4899;
+  --accent-orange: #f97316;
+  --accent-cyan: #06b6d4;
+  --accent-teal: #14b8a6;
+  --dark-purple: #0f0728;
+  --medium-purple: #1a0b2e;
+  --light-purple: #877ea7;
+  --bright-purple: #fcf8ff;
+
+  /* --- Nuevas Variables para Colores de Fondo Blureado (Blanco / Azul Claro) --- */
+  --bg-shape-white-low-opacity: rgba(255, 255, 255, 0.1);
+  --bg-shape-white-medium-opacity: rgba(255, 255, 255, 0.3);
+  --bg-shape-white-high-opacity: rgba(255, 255, 255, 0.5);
+  --bg-shape-white-very-high-opacity: rgba(255, 255, 255, 0.7);
+
+  /* Puedes usar un azul claro específico o una versión transparente del accent-blue */
+  --bg-shape-light-blue-low-opacity: rgba(173, 216, 230, 0.1); /* Un azul cielo muy claro */
+  --bg-shape-light-blue-medium-opacity: rgba(173, 216, 230, 0.3);
+  --bg-shape-light-blue-high-opacity: rgba(173, 216, 230, 0.5);
+  --bg-shape-light-blue-very-low-opacity: rgba(173, 216, 230, 0.02); /* Para la rejilla */
+
+  /* Propiedades Comunes de Fondo Geometrico (Formas/Líneas) */
+  --bg-shape-blur: clamp(40px, 5vw, 80px);
+  --bg-shape-opacity: 0.4; /* Opacidad base para formas fluidas */
+  --bg-accent-shape-blur: clamp(30px, 4vw, 60px);
+  --bg-accent-shape-opacity: 0.3; /* Opacidad base para formas de acento */
+  --bg-line-blur: 2px;
+  --bg-line-opacity: 0.4; /* Opacidad base para líneas */
+  --bg-shape-animation-float: floatShape 20s infinite ease-in-out;
+  --bg-accent-shape-animation-float: floatAccent 15s infinite ease-in-out;
+  --bg-line-animation-float: lineFloat 12s infinite ease-in-out;
+
+  /* Propiedades de Rejilla Sutil */
+  --grid-color: rgba(255, 255, 255, 0.01); /* Líneas de rejilla blancas muy sutiles */
+  --grid-size: clamp(40px, 6vw, 80px);
+  --grid-opacity: 0.5;
+
+  /* Propiedades de Tarjetas Glass Morphism (mantienen colores originales) */
+  --glass-card-bg: rgba(255, 255, 255, 0.08);
+  --glass-card-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-card-border-color: rgba(255, 255, 255, 0.15);
+  --glass-card-border-hover-color: rgba(255, 255, 255, 0.2);
+  --glass-card-blur: clamp(15px, 2vw, 25px);
+  --glass-card-border-radius: clamp(16px, 2vw, 24px);
+  --glass-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --glass-card-transition: all 0.3s ease;
+
+  /* Propiedades de Tarjetas Glass Morphism Secundarias (mantienen colores originales) */
+  --glass-card-secondary-bg: rgba(255, 255, 255, 0.06);
+  --glass-card-secondary-bg-hover: rgba(255, 255, 255, 0.1);
+  --glass-card-secondary-border-color: rgba(255, 255, 255, 0.12);
+  --glass-card-secondary-border-hover-color: rgba(255, 255, 255, 0.18);
+  --glass-card-secondary-blur: clamp(12px, 1.5vw, 20px);
+  --glass-card-secondary-border-radius: clamp(12px, 1.5vw, 20px);
+  --glass-card-secondary-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* Propiedades de Botones Modernos */
+  --button-bg-gradient: linear-gradient(45deg, #1e40af, #3b82f6, #60a5fa);
+  --button-border-radius: clamp(25px, 3vw, 50px);
+  --button-padding: clamp(10px, 1.5vw, 16px) clamp(20px, 3vw, 40px);
+  --button-color: white;
+  --button-font-weight: 600;
+  --button-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  --button-hover-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+  --button-transition: all 0.3s ease;
+}
+
+/* ============================== */
+/*          Estilos Generales     */
+/* ============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  font-family: var(--font-primary);
+}
+
+body {
+  background-color: #000000; /* Fondo ultra oscuro */
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  position: relative;
+  z-index: 10; /* Asegura que el contenido esté sobre el fondo */
+  padding-top: 0;
+}
+
+/* Mejoras de legibilidad para móviles */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+  }
+}
+
+/* ============================== */
+/*         Fondo Geometrico       */
+/* ============================== */
+
+.geometric-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+}
+
+/* Formas Fluidas Comunes */
+.fluid-shape {
+  position: absolute;
+  border-radius: 50%; /* Base circular */
+  filter: blur(var(--bg-shape-blur));
+  opacity: var(--bg-shape-opacity); /* Opacidad base, se ajusta en el gradiente */
+  animation: var(--bg-shape-animation-float);
+}
+
+/* Formas Fluidas Específicas (Ahora en tonos blancos/azul claro) */
+.fluid-shape-1 {
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(400px, 60vw, 800px);
+  top: 50%;
+  right: -10%;
+  /* Usamos solo blancos y un azul claro */
+  background: linear-gradient(
+    135deg,
+    var(--bg-shape-white-high-opacity) 0%,
+    var(--bg-shape-light-blue-high-opacity) 30%,
+    var(--bg-shape-white-very-high-opacity) 70%,
+    var(--bg-shape-white-medium-opacity) 100%
+  );
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* Morph base */
+  animation: morphShape1 25s infinite ease-in-out; /* Animación específica */
+}
+
+.fluid-shape-2 {
+  width: clamp(200px, 30vw, 400px);
+  height: clamp(200px, 30vw, 400px);
+  bottom: 20%;
+  left: -15%;
+  /* Usamos solo blancos y un azul claro */
+  background: radial-gradient(
+    circle at 30% 70%,
+    var(--bg-shape-white-high-opacity) 0%,
+    var(--bg-shape-light-blue-medium-opacity) 40%,
+    var(--bg-shape-white-very-high-opacity) 80%,
+    transparent 100%
+  );
+  animation: morphShape2 30s infinite ease-in-out; /* Animación específica */
+}
+
+.fluid-shape-3 {
+  width: clamp(150px, 25vw, 300px);
+  height: clamp(300px, 40vw, 600px);
+  top: 60%;
+  left: 10%;
+  /* Usamos solo blancos y un azul claro */
+  background: linear-gradient(
+    45deg,
+    var(--bg-shape-white-very-high-opacity) 0%,
+    var(--bg-shape-light-blue-medium-opacity) 50%,
+    var(--bg-shape-white-low-opacity) 100%
+  );
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Morph base */
+  animation: morphShape3 35s infinite ease-in-out; /* Animación específica */
+}
+
+/* Formas de Acento Comunes */
+.accent-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(var(--bg-accent-shape-blur));
+  opacity: var(--bg-accent-shape-opacity); /* Opacidad base, se ajusta en el gradiente */
+  animation: var(--bg-accent-shape-animation-float);
+}
+
+/* Formas de Acento Específicas (Ahora en tonos blancos/azul claro) */
+.accent-shape-1 {
+  width: clamp(100px, 15vw, 200px);
+  height: clamp(100px, 15vw, 200px);
+  top: 15%;
+  left: 0%;
+  /* Usamos solo blancos y un azul claro */
+  background: radial-gradient(
+    circle,
+    var(--bg-shape-white-high-opacity) 0%,
+    var(--bg-shape-light-blue-medium-opacity) 80%,
+    transparent 100%
+  );
+  animation-delay: -5s;
+}
+
+.accent-shape-2 {
+  width: clamp(75px, 12vw, 150px);
+  height: clamp(75px, 12vw, 150px);
+  bottom: 10%;
+  right: 20%;
+  /* Usamos solo blancos y un azul claro */
+  background: radial-gradient(
+    circle,
+    var(--bg-shape-white-medium-opacity) 0%,
+    var(--bg-shape-light-blue-medium-opacity) 60%,
+    transparent 100%
+  );
+  animation-delay: -10s;
+}
+
+.accent-shape-3 {
+  width: clamp(90px, 14vw, 180px);
+  height: clamp(90px, 14vw, 180px);
+  top: 20%;
+  left: 80%;
+  /* Usamos solo blancos y un azul claro */
+  background: radial-gradient(
+    circle,
+    var(--bg-shape-light-blue-high-opacity) 0%,
+    var(--bg-shape-white-medium-opacity) 60%,
+    transparent 100%
+  );
+  animation-delay: -15s;
+}
+
+/* Líneas Geométricas Comunes */
+.geometric-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Asegura que no interfieran con clics */
+}
+
+.geo-line {
+  position: absolute;
+  filter: blur(var(--bg-line-blur));
+  opacity: var(--bg-line-opacity); /* Opacidad base, se ajusta en el gradiente */
+  animation: var(--bg-line-animation-float);
+  /* Background por defecto en blanco o azul claro */
+  background: linear-gradient(90deg, transparent 0%, var(--bg-shape-white-medium-opacity) 50%, transparent 100%);
+}
+
+/* Líneas Geométricas Específicas (Ahora en tonos blancos/azul claro) */
+.geo-line-1 {
+  width: clamp(150px, 25vw, 300px);
+  height: 2px;
+  top: 25%;
+  left: 20%;
+  transform: rotate(15deg);
+  animation-delay: -2s;
+  /* Usa background por defecto de .geo-line (blanco) */
+}
+
+.geo-line-2 {
+  width: clamp(200px, 30vw, 400px);
+  height: 1px;
+  top: 70%;
+  right: 15%;
+  transform: rotate(-20deg);
+  /* Azul claro */
+  background: linear-gradient(90deg, transparent 0%, var(--bg-shape-light-blue-medium-opacity) 50%, transparent 100%);
+  animation-delay: -6s;
+}
+
+.geo-line-3 {
+  width: clamp(125px, 20vw, 250px);
+  height: 1px;
+  top: 45%;
+  left: 50%;
+  transform: rotate(45deg);
+  /* Blanco */
+  background: linear-gradient(90deg, transparent 0%, var(--bg-shape-white-medium-opacity) 50%, transparent 100%);
+  animation-delay: -10s;
+}
+
+/* Rejilla Sutil (Ajustada a azul claro muy sutil) */
+.subtle-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, var(--bg-shape-light-blue-very-low-opacity) 0%, transparent 50%), /* Usa variable de azul muy bajo */
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 100% 100%, var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size);
+  opacity: var(--grid-opacity);
+  pointer-events: none; /* Asegura que no interfiera con clics */
+}
+
+/* ============================== */
+/*           Animaciones          */
+/* ============================== */
+
+/* Las animaciones de morphing y float no necesitan cambios de color, solo se basan en transformaciones */
+
+@keyframes morphShape1 {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 70% 70% 30% / 30% 60% 40% 70%;
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 60% 40%;
+    transform: rotate(270deg) scale(1.05);
+  }
+}
+
+@keyframes morphShape2 {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 50%;
+  }
+  33% {
+    transform: scale(1.2) rotate(120deg);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  }
+  66% {
+    transform: scale(0.8) rotate(240deg);
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+  }
+}
+
+@keyframes morphShape3 {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    border-radius: 70% 30% 40% 60% / 60% 40% 50% 60%;
+    transform: translateY(-50px) rotate(180deg);
+  }
+}
+
+@keyframes floatShape {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+@keyframes floatAccent {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: var(--bg-accent-shape-opacity);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: calc(var(--bg-accent-shape-opacity) + 0.2); /* Aumenta la opacidad base */
+  }
+}
+
+@keyframes lineFloat {
+  0%,
+  100% {
+    opacity: var(--bg-line-opacity);
+  }
+  50% {
+    opacity: calc(var(--bg-line-opacity) + 0.2); /* Aumenta la opacidad base */
+    transform: translateY(-10px);
+  }
+}
+
+/* ============================== */
+/*       Componentes de UI        */
+/* ============================== */
+
+/* Estos componentes mantienen sus variables y estilos originales */
+
+/* Tarjeta Glass Morphism Primaria */
+.glass-card {
+  background: var(--glass-card-bg);
+  backdrop-filter: blur(var(--glass-card-blur));
+  border-radius: var(--glass-card-border-radius);
+  box-shadow: var(--glass-card-shadow);
+  transition: var(--glass-card-transition);
+}
+
+.glass-card:hover {
+  background: var(--glass-card-bg-hover);
+}
+
+/* Tarjetas Glass Morphism Secundarias */
+.glass-card-secondary {
+  background: var(--glass-card-secondary-bg);
+  backdrop-filter: blur(var(--glass-card-secondary-blur));
+  border: 1px solid var(--glass-card-secondary-border-color);
+  border-radius: var(--glass-card-secondary-border-radius);
+  box-shadow: var(--glass-card-secondary-shadow);
+  transition: var(--glass-card-transition);
+}
+
+.glass-card-secondary:hover {
+  background: var(--glass-card-secondary-bg-hover);
+}
+
+/* Efecto de Texto con Gradiente */
+.gradient-text {
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  font-family: var(--font-secondary);
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* Estilos de Botón Moderno */
+.modern-button {
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue));
+  border: none;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  color: var(--button-color);
+  font-weight: var(--button-font-weight);
+  cursor: pointer;
+  transition: var(--button-transition);
+  box-shadow: var(--button-shadow);
+  font-size: var(--text-base);
+  font-family: var(--font-primary);
+}
+
+.modern-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--button-hover-shadow);
+  background: linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6);
+}
+
+/* Capa Oscura con Blur */
+.dark-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Efecto de Resplandor Sutil */
+.subtle-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); /* Usa accent-blue con opacity */
+}
+
+/* Utilidades de texto responsivo */
+.text-responsive-xs { font-size: var(--text-xs); }
+.text-responsive-sm { font-size: var(--text-sm); }
+.text-responsive-base { font-size: var(--text-base); }
+.text-responsive-lg { font-size: var(--text-lg); }
+.text-responsive-xl { font-size: var(--text-xl); }
+.text-responsive-2xl { font-size: var(--text-2xl); }
+.text-responsive-3xl { font-size: var(--text-3xl); }
+.text-responsive-4xl { font-size: var(--text-4xl); }
+.text-responsive-5xl { font-size: var(--text-5xl); }
+
+/* Utilidades de espaciado responsivo */
+.spacing-xs { margin: var(--spacing-xs); }
+.spacing-sm { margin: var(--spacing-sm); }
+.spacing-md { margin: var(--spacing-md); }
+.spacing-lg { margin: var(--spacing-lg); }
+.spacing-xl { margin: var(--spacing-xl); }
+.spacing-2xl { margin: var(--spacing-2xl); }
+
+/* Animaciones de scroll mejoradas */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.7s ease-out;
+}
+
+.scroll-scale-up.visible {
+  opacity: 1;
+  transform: scale(1);
+}

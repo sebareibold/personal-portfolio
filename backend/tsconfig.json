@@ -1,0 +1,61 @@
+{
+  /*
+    tsconfig.json es el archivo de configuración principal de TypeScript.
+    Le indica al compilador (tsc) cómo transformar el código TypeScript (.ts)
+    a JavaScript (.js) y define reglas, directorios, opciones de compatibilidad y optimización.
+
+    A continuación, cada opción y su utilidad:
+  */
+  "compilerOptions": {
+
+    // Define el sistema de módulos que usará el código compilado.
+    // "commonjs" es el estándar para Node.js (compatibilidad con require e import).
+    "module": "commonjs",
+
+    // Indica la versión de JavaScript objetivo al compilar.
+    // "ES2020" permite usar características modernas como async/await y optional chaining.
+    "target": "ES2020",
+
+    // Carpeta raíz donde se encuentran los archivos fuente del proyecto.
+    "rootDir": "./src",
+
+    // Carpeta donde se guardará el código JavaScript compilado.
+    "outDir": "./dist",
+
+    // Habilita comprobaciones estrictas de tipos en TypeScript.
+    // Evita errores comunes como variables indefinidas o parámetros incorrectos.
+    "strict": true,
+
+    // Permite importar librerías CommonJS usando sintaxis moderna (import express from 'express')
+    // sin necesidad de usar require().
+    "esModuleInterop": true,
+
+    // Evita que TypeScript verifique archivos dentro de node_modules (acelera compilación).
+    "skipLibCheck": true,
+
+    // Genera un archivo .map por cada archivo compilado para depuración (debug).
+    // Permite ver código TypeScript original al hacer debugging en Node/Chrome.
+    "sourceMap": true,
+
+    // Genera archivos .d.ts (declaración de tipos) junto con el JS compilado.
+    // Útil si otros proyectos van a consumir nuestro código como librería.
+    "declaration": true,
+
+    // Genera archivos .map para las declaraciones (.d.ts) también.
+    "declarationMap": true,
+
+    // Hace que TypeScript revise accesos a índices en objetos/arrays
+    // para evitar "undefined" no detectados.
+    "noUncheckedIndexedAccess": true,
+
+    // Fuerza a que las propiedades opcionales se usen de forma exacta.
+    // Ejemplo: {x?: number} no permite undefined si no lo declaras explícitamente.
+    "exactOptionalPropertyTypes": true
+  },
+
+  // Archivos a incluir en la compilación (todo dentro de src).
+  "include": ["src/**/*"],
+
+  // Archivos/carpetas a excluir (node_modules no se compila).
+  "exclude": ["node_modules"]
+}
